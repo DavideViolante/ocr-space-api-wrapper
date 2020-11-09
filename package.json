@@ -1,0 +1,40 @@
+{
+  "name": "ocr-space-api-wrapper",
+  "version": "1.0.0",
+  "description": "Node.js wrapper for ocr.space APIs.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "lint": "eslint ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavideViolante/ocr-space-api-wrapper.git"
+  },
+  "keywords": [
+    "ocr",
+    "ocr-space",
+    "api",
+    "ocr api",
+    "wrapper",
+    "nodejs",
+    "optical character recognition"
+  ],
+  "author": "Davide Violante",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DavideViolante/ocr-space-api-wrapper/issues"
+  },
+  "homepage": "https://github.com/DavideViolante/ocr-space-api-wrapper#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "form-data": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-standard": "^16.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1"
+  }
+}
