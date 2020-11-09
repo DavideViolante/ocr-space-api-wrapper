@@ -50,7 +50,6 @@ async function ocrSpace (input, options = {}) {
     data.append('scale', scale || 'false')
     data.append('isTable', isTable || 'false')
     data.append('OCREngine', OCREngine || '1')
-
     const request = {
       method: 'POST',
       url: ocrUrl || 'https://api.ocr.space/parse/image',
