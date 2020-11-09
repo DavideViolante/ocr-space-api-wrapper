@@ -28,11 +28,14 @@ The input param specifies the input file (see example above). It can be one of t
 #### Options: object (not required)
 This param is an object with the following keys:
 - `apiKey`: your API key for [ocr.space APIs](https://ocr.space/ocrapi).
-- `ocrUrl`: a different URL for oce.space APIs, for example when you purchase the PRO plans
+- `ocrUrl`: a different URL for oce.space APIs, for example when you purchase the PRO plans.
 - All other params as documented in the [official website](https://ocr.space/OCRAPI#Response).
 
 ### Response
 Refer to the [official website](https://ocr.space/OCRAPI#Response).
+
+### Bug or feedback
+Please open a new issue.
 
 ### Author
 - [Davide Violante](https://github.com/DavideViolante)
