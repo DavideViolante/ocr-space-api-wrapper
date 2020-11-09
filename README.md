@@ -1,4 +1,6 @@
 # OCR Space Node.js API wrapper
+ [![Donate](https://img.shields.io/badge/paypal-donate-179BD7.svg)](https://www.paypal.me/dviolante)
+ 
 Node.js wrapper for [ocr.space APIs](https://ocr.space/ocrapi).
 
 ### Install
