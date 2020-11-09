@@ -45,8 +45,8 @@ async function ocrSpace (input, options = {}) {
       data.append('filetype', filetype)
     }
     data.append('detectOrientation', detectOrientation || 'false')
-    data.append('isCreateSearchablePdf', isCreateSearchablePdf || 'true')
-    data.append('isSearchablePdfHideTextLayer', isSearchablePdfHideTextLayer || 'true')
+    data.append('isCreateSearchablePdf', isCreateSearchablePdf || 'false')
+    data.append('isSearchablePdfHideTextLayer', isSearchablePdfHideTextLayer || 'false')
     data.append('scale', scale || 'false')
     data.append('isTable', isTable || 'false')
     data.append('OCREngine', OCREngine || '1')
@@ -61,18 +61,9 @@ async function ocrSpace (input, options = {}) {
       data
     }
     const response = await axios(request)
-    console.log(response.data)
+    // console.log(response.data)
     return response.data
   } catch (error) {
-    /*
-    {
-      ParsedResults: [],
-      OCRExitCode: 6,
-      IsErroredOnProcessing: true,
-      ErrorMessage: [ 'Timed out waiting for results' ],
-      ProcessingTimeInMilliseconds: '49024'
-    }
-    */
     console.error(error)
   }
 }
