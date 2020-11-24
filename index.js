@@ -57,7 +57,9 @@ async function ocrSpace (input, options = {}) {
         apikey: apiKey || 'helloworld',
         ...data.getHeaders()
       },
-      data
+      data,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity
     }
     const response = await axios(request)
     // console.log(response.data)
