@@ -1,6 +1,6 @@
 {
   "name": "ocr-space-api-wrapper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Node.js wrapper for ocr.space APIs.",
   "main": "index.js",
   "scripts": {

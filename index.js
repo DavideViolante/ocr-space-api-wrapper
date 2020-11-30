@@ -15,18 +15,13 @@ function detectInput (input) {
  */
 async function ocrSpace (input, options = {}) {
   try {
+    if (!input || typeof input !== 'string') {
+      throw Error('Param input is required and must be typeof string')
+    }
     const {
-      apiKey,
-      ocrUrl,
-      language,
-      isOverlayRequired,
-      filetype,
-      detectOrientation,
-      isCreateSearchablePdf,
-      isSearchablePdfHideTextLayer,
-      scale,
-      isTable,
-      OCREngine
+      apiKey, ocrUrl, language, isOverlayRequired,
+      filetype, detectOrientation, isCreateSearchablePdf,
+      isSearchablePdfHideTextLayer, scale, isTable, OCREngine
     } = options
     const data = new FormData()
     const detectedInput = detectInput(input)
@@ -39,22 +34,22 @@ async function ocrSpace (input, options = {}) {
         data.append(detectedInput, input)
         break
     }
-    data.append('language', language || 'eng')
-    data.append('isOverlayRequired', isOverlayRequired || 'false')
+    data.append('language', String(language || 'eng'))
+    data.append('isOverlayRequired', String(isOverlayRequired || 'false'))
     if (filetype) {
-      data.append('filetype', filetype)
+      data.append('filetype', String(filetype))
     }
-    data.append('detectOrientation', detectOrientation || 'false')
-    data.append('isCreateSearchablePdf', isCreateSearchablePdf || 'false')
-    data.append('isSearchablePdfHideTextLayer', isSearchablePdfHideTextLayer || 'false')
-    data.append('scale', scale || 'false')
-    data.append('isTable', isTable || 'false')
-    data.append('OCREngine', OCREngine || '1')
+    data.append('detectOrientation', String(detectOrientation || 'false'))
+    data.append('isCreateSearchablePdf', String(isCreateSearchablePdf || 'false'))
+    data.append('isSearchablePdfHideTextLayer', String(isSearchablePdfHideTextLayer || 'false'))
+    data.append('scale', String(scale || 'false'))
+    data.append('isTable', String(isTable || 'false'))
+    data.append('OCREngine', String(OCREngine || '1'))
     const request = {
       method: 'POST',
-      url: ocrUrl || 'https://api.ocr.space/parse/image',
+      url: String(ocrUrl || 'https://api.ocr.space/parse/image'),
       headers: {
-        apikey: apiKey || 'helloworld',
+        apikey: String(apiKey || 'helloworld'),
         ...data.getHeaders()
       },
       data,
@@ -62,7 +57,7 @@ async function ocrSpace (input, options = {}) {
       maxBodyLength: Infinity
     }
     const response = await axios(request)
-    // console.log(response.data)
+    console.log(response.data)
     return response.data
   } catch (error) {
     console.error(error)
