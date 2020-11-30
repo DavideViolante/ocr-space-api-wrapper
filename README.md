@@ -34,7 +34,7 @@ The input param specifies the input file (see examples above). It can be one of 
  - a `base64 image` string such as `data:image/png;base64...`.
 
 ### `options` object
-This param is an object with the following keys (any key must be `string`):
+This param is an object with the following keys:
 - `apiKey`: your API key for [ocr.space APIs](https://ocr.space/ocrapi). 
 - `ocrUrl`: a different URL for oce.space APIs, for example when you purchase the PRO plan.
 - All other params as documented in the [official website](https://ocr.space/OCRAPI#PostParameters).
