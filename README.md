@@ -36,7 +36,7 @@ The input param specifies the input file (see examples above). It can be one of 
 ### `options` object
 This param is an object with the following keys:
 - `apiKey`: your API key for [ocr.space APIs](https://ocr.space/ocrapi). 
-- `ocrUrl`: a different URL for oce.space APIs, for example when you purchase the PRO plan.
+- `ocrUrl`: a different URL for ocr.space APIs, for example when you purchase the PRO plan.
 - All other params as documented in the [official website](https://ocr.space/OCRAPI#PostParameters).
 
 ## Response
