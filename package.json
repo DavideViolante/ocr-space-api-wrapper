@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "lint": "eslint ./",
-    "test": "nyc mocha --timeout 30000",
-    "coverage": "nyc --reporter=lcov --reporter=text mocha --timeout 30000"
+    "test": "nyc mocha --timeout 60000 --bail",
+    "coverage": "nyc --reporter=lcov --reporter=text mocha --timeout 60000 --bail"
   },
   "repository": {
     "type": "git",
