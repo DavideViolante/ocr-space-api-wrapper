@@ -1,5 +1,5 @@
 # OCR.Space Node.js API wrapper
-![npm](https://img.shields.io/npm/dm/ocr-space-api-wrapper) [![Donate](https://img.shields.io/badge/paypal-donate-179BD7.svg)](https://www.paypal.me/dviolante)
+[![](https://github.com/davideviolante/ocr-space-api-wrapper/workflows/Node.js%20CI/badge.svg)](https://github.com/DavideViolante/ocr-space-api-wrapper/actions?query=workflow%3A"Node.js+CI") [![Coverage Status](https://coveralls.io/repos/github/DavideViolante/ocr-space-api-wrapper/badge.svg?branch=master)](https://coveralls.io/github/DavideViolante/ocr-space-api-wrapper?branch=master) ![npm](https://img.shields.io/npm/dm/ocr-space-api-wrapper) [![Donate](https://img.shields.io/badge/paypal-donate-179BD7.svg)](https://www.paypal.me/dviolante)
 
 [![NPM](https://nodei.co/npm/ocr-space-api-wrapper.png)](https://nodei.co/npm/ocr-space-api-wrapper/)
 
