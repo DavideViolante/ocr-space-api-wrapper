@@ -7,7 +7,7 @@
     "start": "node index.js",
     "lint": "eslint ./",
     "test": "nyc mocha --timeout 30000",
-    "coverage": "nyc --reporter=lcov --reporter=text mocha"
+    "coverage": "nyc --reporter=lcov --reporter=text mocha --timeout 30000"
   },
   "repository": {
     "type": "git",
