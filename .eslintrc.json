@@ -2,7 +2,8 @@
   "env": {
     "commonjs": true,
     "es2021": true,
-    "node": true
+    "node": true,
+    "mocha": true
   },
   "extends": "google",
   "parserOptions": {
@@ -10,7 +11,7 @@
   },
   "rules": {
     "max-len": [
-      "error", 100
+      "error", 120
     ],
     "object-curly-spacing": [
       "error", "always"

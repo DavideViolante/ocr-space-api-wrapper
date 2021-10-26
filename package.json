@@ -1,11 +1,13 @@
 {
   "name": "ocr-space-api-wrapper",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "Node.js wrapper for ocr.space APIs.",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "lint": "eslint ./"
+    "start": "node index.js",
+    "lint": "eslint ./",
+    "test": "nyc mocha --timeout 30000",
+    "coverage": "nyc --reporter=lcov --reporter=text mocha"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,9 @@
     "ocr api",
     "wrapper",
     "nodejs",
-    "optical character recognition"
+    "optical character recognition",
+    "pdf",
+    "image"
   ],
   "author": "Davide Violante",
   "license": "MIT",
@@ -32,6 +36,8 @@
   },
   "devDependencies": {
     "eslint": "^8.0.1",
-    "eslint-config-google": "^0.14.0"
+    "eslint-config-google": "^0.14.0",
+    "mocha": "^9.1.3",
+    "nyc": "^15.1.0"
   }
 }

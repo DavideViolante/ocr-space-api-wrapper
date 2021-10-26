@@ -28,45 +28,44 @@ async function ocrSpace(input, options = {}) {
       filetype, detectOrientation, isCreateSearchablePdf,
       isSearchablePdfHideTextLayer, scale, isTable, OCREngine,
     } = options;
-    const data = new FormData();
+    const formData = new FormData();
     const detectedInput = detectInput(input);
     switch (detectedInput) {
       case 'file':
-        data.append('file', fs.createReadStream(input));
+        formData.append('file', fs.createReadStream(input));
         break;
       case 'url':
       case 'base64Image':
-        data.append(detectedInput, input);
+        formData.append(detectedInput, input);
         break;
     }
-    data.append('language', String(language || 'eng'));
-    data.append('isOverlayRequired', String(isOverlayRequired || 'false'));
+    formData.append('language', String(language || 'eng'));
+    formData.append('isOverlayRequired', String(isOverlayRequired || 'false'));
     if (filetype) {
-      data.append('filetype', String(filetype));
+      formData.append('filetype', String(filetype));
     }
-    data.append('detectOrientation', String(detectOrientation || 'false'));
-    data.append('isCreateSearchablePdf', String(isCreateSearchablePdf || 'false'));
-    data.append('isSearchablePdfHideTextLayer', String(isSearchablePdfHideTextLayer || 'false'));
-    data.append('scale', String(scale || 'false'));
-    data.append('isTable', String(isTable || 'false'));
-    data.append('OCREngine', String(OCREngine || '1'));
+    formData.append('detectOrientation', String(detectOrientation || 'false'));
+    formData.append('isCreateSearchablePdf', String(isCreateSearchablePdf || 'false'));
+    formData.append('isSearchablePdfHideTextLayer', String(isSearchablePdfHideTextLayer || 'false'));
+    formData.append('scale', String(scale || 'false'));
+    formData.append('isTable', String(isTable || 'false'));
+    formData.append('OCREngine', String(OCREngine || '1'));
     const request = {
       method: 'POST',
       url: String(ocrUrl || 'https://api.ocr.space/parse/image'),
       headers: {
         apikey: String(apiKey || 'helloworld'),
-        ...data.getHeaders(),
+        ...formData.getHeaders(),
       },
-      data,
+      data: formData,
       maxContentLength: Infinity,
       maxBodyLength: Infinity,
     };
-    const response = await axios(request);
-    // console.log(response.data)
-    return response.data;
+    const { data } = await axios(request);
+    return data;
   } catch (error) {
     console.error(error);
   }
 }
 
-module.exports = ocrSpace;
+exports.ocrSpace = ocrSpace;

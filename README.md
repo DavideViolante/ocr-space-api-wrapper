@@ -10,7 +10,7 @@ Node.js wrapper for [ocr.space APIs](https://ocr.space/ocrapi), a service for ex
 
 ## Usage
 ```js
-const ocrSpace = require('ocr-space-api-wrapper');
+const { ocrSpace } = require('ocr-space-api-wrapper');
 
 async function main () {
   try {
@@ -23,7 +23,7 @@ async function main () {
     // Using your personal token + base64 image + custom language
     const res3 = await ocrSpace('data:image/png;base64...', { apiKey: '<API_KEY_HERE>', language: 'ita' });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 ```
@@ -43,6 +43,12 @@ This param is an object with the following keys:
 
 ## Response
 This package does not change the response in any way, please refer to the [official website](https://ocr.space/OCRAPI#Response).
+
+## Run lint
+`npm run lint`
+
+## Run tests
+`npm test`
 
 ## Bug or feedback
 Please open a new issue.
