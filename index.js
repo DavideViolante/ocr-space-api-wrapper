@@ -17,6 +17,7 @@ function detectInput(input) {
  * Call OCR Space APIs
  * @param {string} input Input file as url, file path or base64 image (required)
  * @param {object} options Options
+ * @return {object} OCR results
  */
 async function ocrSpace(input, options = {}) {
   try {
