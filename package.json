@@ -31,13 +31,13 @@
   },
   "homepage": "https://github.com/DavideViolante/ocr-space-api-wrapper#readme",
   "dependencies": {
-    "axios": "^1.2.0",
+    "axios": "0.27.2",
     "form-data": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.28.0",
+    "eslint": "^8.33.0",
     "eslint-config-google": "^0.14.0",
-    "mocha": "^10.1.0",
+    "mocha": "^10.2.0",
     "nyc": "^15.1.0"
   }
 }
