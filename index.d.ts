@@ -1,3 +1,11 @@
+type OcrSpaceLanguages = 'ara' | 'bul' | 'chs' | 'cht' | 'hrv' | 'cze' | 'dan' | 'dut' |
+  'eng' | 'fin' | 'fre' | 'ger' | 'gre' | 'hun' | 'kor' | 'ita' | 'jpn' | 'pol' |
+  'por' | 'rus' | 'slv' | 'spa' | 'swe' | 'tur' |
+  // The following are only supported by OCREngine = '3'
+  'hin' | 'kan' | 'per' | 'tel' | 'tam' | 'tai' | 'vie';
+
+type OcrSpaceFileTypes = string | 'PDF' | 'GIF' | 'PNG' | 'JPG' | 'TIF' | 'BMP';
+
 type ParsedResult = {
   ErrorMessage: string;
   ErrorDetails: string;
@@ -15,19 +23,15 @@ type OcrSpaceResponse = {
   OCRExitCode: number;
   ParsedResults: ParsedResult[];
   ProcessingTimeInMilliseconds: number
-  SearchablePDFURL: string; 
+  SearchablePDFURL: string;
 }
 
-type Options = {
+type OcrSpaceOptions = {
   apiKey?: string;
   ocrUrl?: string;
-  language?: 'ara' | 'bul' | 'chs' | 'cht' | 'hrv' | 'cze' | 'dan' | 'dut' |
-  'eng' | 'fin' | 'fre' | 'ger' | 'gre' | 'hun' | 'kor' | 'ita' | 'jpn' | 'pol' |
-  'por' | 'rus' | 'slv' | 'spa' | 'swe' | 'tur' |
-  // The following languages are only supported by OCREngine = '3'
-  'hin' | 'kan' | 'per' | 'tel' | 'tam' | 'tai' | 'vie';
+  language?: OcrSpaceLanguages;
   isOverlayRequired?: boolean;
-  filetype?: string | 'PDF' | 'GIF' | 'PNG' | 'JPG' | 'TIF' | 'BMP';
+  filetype?: OcrSpaceFileTypes;
   detectOrientation?: boolean;
   isCreateSearchablePdf?: boolean;
   isSearchablePdfHideTextLayer?: boolean;
@@ -37,5 +41,7 @@ type Options = {
 }
 
 declare module "ocr-space-api-wrapper" {
-  export function ocrSpace(input: string, options?: Options): OcrSpaceResponse;
+  export type OcrSpaceLanguages = OcrSpaceLanguages;
+  export type OcrSpaceFileTypes = OcrSpaceFileTypes;
+  export function ocrSpace(input: string, options?: OcrSpaceOptions): OcrSpaceResponse;
 }
