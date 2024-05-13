@@ -38,5 +38,5 @@ declare module "ocr-space-api-wrapper" {
     SearchablePDFURL: string;
   };
 
-  export function ocrSpace(input: string, options?: OcrSpaceOptions): OcrSpaceResponse;
+  export function ocrSpace(input: string, options?: OcrSpaceOptions): Promise<OcrSpaceResponse>;
 }
