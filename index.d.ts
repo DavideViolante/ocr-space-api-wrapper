@@ -20,20 +20,26 @@ declare module "ocr-space-api-wrapper" {
     OCREngine?: '1' | '2' | '3';
   };
 
-  type OcrSpaceResponse = {
+  export type OcrSpaceParsedResult = {
+    ErrorMessage: string;
+    ErrorDetails: string;
+    FileParseExitCode: 0 | 1 | -10 | -20 | -30 | -99;
+    HasOverlay: boolean;
+    Message: string;
+    ParsedText: string;
+    TextOverlay: {
+      Lines: any[];
+      HasOverlay: boolean;
+      Message: string;
+    };
+  }
+
+  export type OcrSpaceResponse = {
     ErrorMessage: string;
     ErrorDetails: string;
     IsErroredOnProcessing: boolean;
     OCRExitCode: number;
-    ParsedResults: {
-      ErrorMessage: string;
-      ErrorDetails: string;
-      FileParseExitCode: 0 | 1 | -10 | -20 | -30 | -99;
-      HasOverlay: boolean,
-      Message: string;
-      ParsedText: string;
-      TextOverlay: any;
-    }[];
+    ParsedResults: OcrSpaceParsedResult[];
     ProcessingTimeInMilliseconds: number
     SearchablePDFURL: string;
   };
