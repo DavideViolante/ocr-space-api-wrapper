@@ -61,4 +61,19 @@ describe('Tests for OCR Space API Wrapper', () => {
     assert.notStrictEqual(res1.SearchablePDFURL, 'Searchable PDF not generated as it was not requested.');
     assert.match(res1.SearchablePDFURL, /https?:\/\/.*\.pdf/);
   });
+  it('should return results with a local file input and options with OCREngine 2', async () => {
+    const res1 = await ocrSpace('./test/eng.png', {
+      isCreateSearchablePdf: true,
+      isSearchablePdfHideTextLayer: true,
+      scale: true,
+      OCREngine: 2,
+      filetype: 'application/pdf',
+    });
+    assert.ok(res1.ParsedResults);
+    assert.ok(res1.ParsedResults.length);
+    assert.strictEqual(res1.OCRExitCode, 1);
+    assert.strictEqual(res1.IsErroredOnProcessing, false);
+    assert.notStrictEqual(res1.SearchablePDFURL, 'Searchable PDF not generated as it was not requested.');
+    assert.match(res1.SearchablePDFURL, /https?:\/\/.*\.pdf/);
+  });
 });
