@@ -1,6 +1,6 @@
 {
   "name": "ocr-space-api-wrapper",
-  "version": "2.3.2",
+  "version": "2.4.0",
   "description": "Node.js wrapper for ocr.space APIs.",
   "main": "index.js",
   "scripts": {
@@ -37,6 +37,7 @@
   "devDependencies": {
     "eslint": "^8.57.1",
     "eslint-config-google": "^0.14.0",
+    "husky": "^9.1.7",
     "mocha": "^11.0.1",
     "nyc": "^17.1.0"
   }

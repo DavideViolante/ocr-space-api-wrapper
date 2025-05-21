@@ -1,7 +1,7 @@
 # OCR.Space Node.js API wrapper
-[![](https://github.com/davideviolante/ocr-space-api-wrapper/workflows/Node.js%20CI/badge.svg)](https://github.com/DavideViolante/ocr-space-api-wrapper/actions?query=workflow%3A"Node.js+CI") [![Coverage Status](https://coveralls.io/repos/github/DavideViolante/ocr-space-api-wrapper/badge.svg?branch=master)](https://coveralls.io/github/DavideViolante/ocr-space-api-wrapper?branch=master) ![npm](https://img.shields.io/npm/dm/ocr-space-api-wrapper) [![Donate](https://img.shields.io/badge/paypal-donate-179BD7.svg)](https://www.paypal.me/dviolante)
+[![](https://github.com/davideviolante/ocr-space-api-wrapper/workflows/Node.js%20CI/badge.svg)](https://github.com/DavideViolante/ocr-space-api-wrapper/actions?query=workflow%3A"Node.js+CI") [![Coverage Status](https://coveralls.io/repos/github/DavideViolante/ocr-space-api-wrapper/badge.svg?branch=master)](https://coveralls.io/github/DavideViolante/ocr-space-api-wrapper?branch=master) [![npm](https://img.shields.io/npm/dm/ocr-space-api-wrapper)](https://www.npmjs.com/package/ocr-space-api-wrapper) [![Donate](https://img.shields.io/badge/paypal-donate-179BD7.svg)](https://www.paypal.me/dviolante)
 
-[![NPM](https://nodei.co/npm/ocr-space-api-wrapper.png)](https://nodei.co/npm/ocr-space-api-wrapper/)
+[![NPM](https://nodei.co/npm/ocr-space-api-wrapper.png)](https://www.npmjs.com/package/ocr-space-api-wrapper)
 
 Node.js wrapper for [ocr.space APIs](https://ocr.space/ocrapi), a service for executing OCR (Optical Character Recognition) to images and PDFs.
 

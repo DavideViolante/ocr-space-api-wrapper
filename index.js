@@ -40,7 +40,12 @@ async function ocrSpace(input, options = {}) {
         formData.append(detectedInput, input);
         break;
     }
-    formData.append('language', String(language || 'eng'));
+    let defaultLanguage = language;
+    if (!defaultLanguage) {
+      // Only OCREngine 2 supports auto as language
+      defaultLanguage = String(OCREngine) === '2' ? 'auto' : 'eng';
+    }
+    formData.append('language', String(defaultLanguage));
     formData.append('isOverlayRequired', String(isOverlayRequired || 'false'));
     if (filetype) {
       formData.append('filetype', String(filetype));
