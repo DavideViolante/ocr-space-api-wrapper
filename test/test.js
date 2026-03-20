@@ -2,15 +2,11 @@ const assert = require('assert');
 const { ocrSpace } = require('../index');
 
 describe('Tests for OCR Space API Wrapper', () => {
-  it('should return undefined if input is wrong', async () => {
-    const res1 = await ocrSpace();
-    assert.strictEqual(res1, undefined);
-    const res2 = await ocrSpace('');
-    assert.strictEqual(res2, undefined);
-    const res3 = await ocrSpace(1);
-    assert.strictEqual(res3, undefined);
-    const res4 = await ocrSpace(true);
-    assert.strictEqual(res4, undefined);
+  it('should throw if input is wrong', async () => {
+    await assert.rejects(() => ocrSpace());
+    await assert.rejects(() => ocrSpace(''));
+    await assert.rejects(() => ocrSpace(1));
+    await assert.rejects(() => ocrSpace(true));
   });
   it('should return results with a URL input', async () => {
     const res1 = await ocrSpace('http://dl.a9t9.com/ocrbenchmark/eng.png');
@@ -76,12 +72,11 @@ describe('Tests for OCR Space API Wrapper', () => {
     assert.notStrictEqual(res1.SearchablePDFURL, 'Searchable PDF not generated as it was not requested.');
     assert.match(res1.SearchablePDFURL, /https?:\/\/.*\.pdf/);
   });
-  it('should abort the request', async () => {
+  it('should throw if the request is aborted', async () => {
     const controller = new AbortController();
     const { signal } = controller;
     const promise = ocrSpace('./test/eng.png', { signal });
     controller.abort();
-    const res1 = await promise;
-    assert.strictEqual(res1, undefined);
+    await assert.rejects(promise);
   });
 });

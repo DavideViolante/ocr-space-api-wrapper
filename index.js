@@ -73,6 +73,7 @@ async function ocrSpace(input, options = {}) {
     return data;
   } catch (error) {
     console.error(error);
+    throw error;
   }
 }
 
