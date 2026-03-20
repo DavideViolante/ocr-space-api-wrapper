@@ -18,6 +18,7 @@ declare module "ocr-space-api-wrapper" {
     scale?: boolean;
     isTable?: boolean;
     OCREngine?: '1' | '2' | '3';
+    signal?: AbortSignal;
   };
 
   export type OcrSpaceParsedResult = {

@@ -39,6 +39,7 @@ The input param specifies the input file (see examples above). It can be _one_ o
 This param is an object with the following keys:
 - `apiKey`: your API key for [ocr.space APIs](https://ocr.space/ocrapi). Default API key has a limit of max 10reqs in 10mins.
 - `ocrUrl`: a different URL for ocr.space APIs, for example when you purchase the PRO plan.
+- `signal`: an `AbortSignal` for `AbortController` to abort the request.
 - All other params as documented in the [official website](https://ocr.space/OCRAPI#PostParameters).
 
 ## Response

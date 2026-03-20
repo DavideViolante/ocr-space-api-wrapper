@@ -28,6 +28,7 @@ async function ocrSpace(input, options = {}) {
       apiKey, ocrUrl, language, isOverlayRequired,
       filetype, detectOrientation, isCreateSearchablePdf,
       isSearchablePdfHideTextLayer, scale, isTable, OCREngine,
+      signal,
     } = options;
     const formData = new FormData();
     const detectedInput = detectInput(input);
@@ -66,6 +67,7 @@ async function ocrSpace(input, options = {}) {
       data: formData,
       maxContentLength: Infinity,
       maxBodyLength: Infinity,
+      signal,
     };
     const { data } = await axios(request);
     return data;
