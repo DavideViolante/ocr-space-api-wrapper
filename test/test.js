@@ -76,4 +76,12 @@ describe('Tests for OCR Space API Wrapper', () => {
     assert.notStrictEqual(res1.SearchablePDFURL, 'Searchable PDF not generated as it was not requested.');
     assert.match(res1.SearchablePDFURL, /https?:\/\/.*\.pdf/);
   });
+  it('should abort the request', async () => {
+    const controller = new AbortController();
+    const { signal } = controller;
+    const promise = ocrSpace('./test/eng.png', { signal });
+    controller.abort();
+    const res1 = await promise;
+    assert.strictEqual(res1, undefined);
+  });
 });
