@@ -15,6 +15,11 @@ jobs:
       with:
         node-version: '24'
         cache: 'npm'
-    - run: npm ci
-    - run: npm run lint
-    - run: npm test
+    - name: Install deps
+      run: npm ci
+    - name: Run Lint
+      run: npm run lint
+    - name: Run Tests
+      env:
+        OCR_SPACE_API_KEY: ${{ secrets.OCR_SPACE_API_KEY }}
+      run: npm test

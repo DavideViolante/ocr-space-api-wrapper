@@ -13,6 +13,8 @@ jobs:
         cache: 'npm'
 
     - name: Coverage
+      env:
+        OCR_SPACE_API_KEY: ${{ secrets.OCR_SPACE_API_KEY }}
       run: |
         npm ci
         npm run coverage

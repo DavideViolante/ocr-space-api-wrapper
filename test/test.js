@@ -11,7 +11,7 @@ describe('Tests for OCR Space API Wrapper', () => {
     await assert.rejects(() => ocrSpace(true));
   });
   it('should return results with a URL input', async () => {
-    const res1 = await ocrSpace('http://dl.a9t9.com/ocrbenchmark/eng.png');
+    const res1 = await ocrSpace('http://dl.a9t9.com/ocrbenchmark/eng.png', { apiKey: process.env.OCR_SPACE_API_KEY });
     assert.ok(res1.ParsedResults);
     assert.ok(res1.ParsedResults.length);
     assert.strictEqual(res1.OCRExitCode, 1);
@@ -19,7 +19,7 @@ describe('Tests for OCR Space API Wrapper', () => {
     assert.strictEqual(res1.SearchablePDFURL, 'Searchable PDF not generated as it was not requested.');
   });
   it('should return results with a local file input', async () => {
-    const res1 = await ocrSpace('./test/eng.png');
+    const res1 = await ocrSpace('./test/eng.png', { apiKey: process.env.OCR_SPACE_API_KEY });
     assert.ok(res1.ParsedResults);
     assert.ok(res1.ParsedResults.length);
     assert.strictEqual(res1.OCRExitCode, 1);
@@ -36,7 +36,7 @@ describe('Tests for OCR Space API Wrapper', () => {
     assert.strictEqual(res1.SearchablePDFURL, 'Searchable PDF not generated as it was not requested.');
   });
   it('should return results with a local file input and options #1', async () => {
-    const res1 = await ocrSpace('./test/eng.png', { apiKey: 'helloworld', language: 'eng' });
+    const res1 = await ocrSpace('./test/eng.png', { apiKey: process.env.OCR_SPACE_API_KEY, language: 'eng' });
     assert.ok(res1.ParsedResults);
     assert.ok(res1.ParsedResults.length);
     assert.strictEqual(res1.OCRExitCode, 1);
@@ -45,6 +45,7 @@ describe('Tests for OCR Space API Wrapper', () => {
   });
   it('should return results with a local file input and options #2', async () => {
     const res1 = await ocrSpace('./test/eng.pdf', {
+      apiKey: process.env.OCR_SPACE_API_KEY,
       isCreateSearchablePdf: true,
       isSearchablePdfHideTextLayer: true,
       scale: true,
@@ -58,6 +59,7 @@ describe('Tests for OCR Space API Wrapper', () => {
   });
   it('should return results with a local file input and options with OCREngine 2', async () => {
     const res1 = await ocrSpace('./test/eng.pdf', {
+      apiKey: process.env.OCR_SPACE_API_KEY,
       isCreateSearchablePdf: true,
       isSearchablePdfHideTextLayer: true,
       scale: true,
@@ -74,7 +76,7 @@ describe('Tests for OCR Space API Wrapper', () => {
   it('should throw if the request is aborted', async () => {
     const controller = new AbortController();
     const { signal } = controller;
-    const promise = ocrSpace('./test/eng.png', { signal });
+    const promise = ocrSpace('./test/eng.png', { apiKey: process.env.OCR_SPACE_API_KEY, signal });
     controller.abort();
     await assert.rejects(promise);
   });
